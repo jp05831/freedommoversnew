@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 1.5s ease-in-out infinite;
+}
+
+/* Phone number hover in navbar */
+a[href="tel:+12395394761"]:hover span {
+  filter: brightness(1.5) saturate(2);
+}
+
+@theme {
+  --color-primary: #9AAF5E;
+  --color-primary-light: #B0C274;
+  --color-primary-dark: #7A8F4A;
+  --color-accent: #9AAF5E;
+  --color-accent-light: #B0C274;
+  --color-accent-dark: #7A8F4A;
+  --color-dark: #1a1a1a;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
