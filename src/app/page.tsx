@@ -79,16 +79,16 @@ export default function HomePage() {
         </div>
         
         {/* Tablet/Mobile: Awards below form */}
-        <div className="flex lg:hidden items-center justify-center gap-6 mt-8">
+        <div className="flex lg:hidden items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8">
           <img 
             src="/images/award20-21.png" 
             alt="Best of Bucks County 2020-2021" 
-            className="w-36 h-auto"
+            className="w-28 sm:w-36 h-auto"
           />
           <img 
             src="/images/award22-23.png" 
             alt="Best of Bucks County 2022-2023" 
-            className="w-36 h-auto"
+            className="w-28 sm:w-36 h-auto"
           />
         </div>
       </div>

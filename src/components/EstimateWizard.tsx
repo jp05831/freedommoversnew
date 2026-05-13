@@ -88,7 +88,7 @@ export default function EstimateWizard() {
 
   if (submitting) {
     return (
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 max-w-2xl mx-auto overflow-hidden min-w-0" style={{ width: "580px", maxWidth: "100%" }}>
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden">
         <div className="flex flex-col items-center justify-center py-16">
           <div className="animate-bounce-slow mb-4">
             <svg viewBox="0 0 128 80" className="w-28 h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@ export default function EstimateWizard() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 max-w-2xl mx-auto overflow-hidden min-w-0" style={{ width: "580px", maxWidth: "100%" }}>
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden">
         <div className="flex flex-col items-center justify-center py-14 px-6">
           <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-5">
             <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,15 +130,15 @@ export default function EstimateWizard() {
     : "";
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 max-w-2xl mx-auto overflow-hidden min-w-0" style={{ width: "580px", maxWidth: "100%" }}>
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden">
       {/* Header */}
-      <div className="bg-primary px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className="bg-primary px-4 sm:px-6 py-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h2 className="text-white font-bold text-lg">CHECK AVAILABILITY</h2>
+            <h2 className="text-white font-bold text-base sm:text-lg">CHECK AVAILABILITY</h2>
             <p className="text-white/70 text-xs mt-0.5">Takes less than a minute — no obligation</p>
           </div>
-          <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-lg px-3 py-1.5">
+          <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-lg px-3 py-1.5 w-fit">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((i) => (
                 <svg key={i} className={`w-4 h-4 ${i <= 4 ? "text-accent" : "text-accent/60"}`} fill="currentColor" viewBox="0 0 20 20">
@@ -152,7 +152,7 @@ export default function EstimateWizard() {
         </div>
       </div>
 
-      <div className="p-6 lg:p-8">
+      <div className="p-4 sm:p-6 lg:p-8">
         <p className="text-gray-400 text-sm font-bold mb-6">Tell us a few details to get started.</p>
 
         <div className="space-y-4">
