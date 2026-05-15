@@ -88,7 +88,7 @@ export default function EstimateWizard() {
 
   if (submitting) {
     return (
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-20 w-full max-w-[580px] mx-auto overflow-hidden">
         <div className="flex flex-col items-center justify-center py-16">
           <div className="animate-bounce-slow mb-4">
             <svg viewBox="0 0 128 80" className="w-28 h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@ export default function EstimateWizard() {
 
   if (submitted) {
     return (
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-20 w-full max-w-[580px] mx-auto overflow-hidden">
         <div className="flex flex-col items-center justify-center py-14 px-6">
           <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-5">
             <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,7 +130,7 @@ export default function EstimateWizard() {
     : "";
 
   return (
-    <div className="bg-white rounded-xl md:rounded-2xl shadow-xl border border-gray-200 -mt-6 md:-mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden box-border">
+    <div className="bg-white rounded-xl md:rounded-2xl shadow-xl border border-gray-200 -mt-6 md:-mt-8 relative z-20 w-full max-w-[580px] mx-auto overflow-hidden box-border">
       {/* Header */}
       <div className="bg-primary px-4 md:px-6 py-3 md:py-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">

@@ -52,7 +52,7 @@ export default function HomePage() {
       />
 
       {/* Estimate Form - overlaps hero with award badges on sides */}
-      <div className="px-3 sm:px-6 lg:px-8 pb-8 overflow-hidden">
+      <div className="px-4 sm:px-6 lg:px-8 pb-8 relative z-20">
         <div className="flex items-center justify-center gap-4 lg:gap-8 xl:gap-12">
           {/* Left Award Badge */}
           <div className="hidden lg:flex flex-col items-center justify-center flex-shrink-0">

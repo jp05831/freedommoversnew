@@ -11,15 +11,15 @@ export default function Navbar() {
   const [areasOpen, setAreasOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 md:h-16 lg:h-20 gap-2">
+    <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/images/logo.png"
               alt="Freedom Moving"
-              className="h-9 md:h-12 lg:h-14 w-auto"
+              className="h-10 lg:h-12 w-auto"
             />
           </Link>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
                   </svg>
                 </button>
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-0 pt-2">
+                  <div className="absolute top-full left-0 mt-0 pt-2 z-[100]">
                     <div className="bg-primary rounded-lg shadow-lg py-2 w-56">
                       {services.map((s) => (
                         <Link
@@ -68,7 +68,7 @@ export default function Navbar() {
                   </svg>
                 </Link>
                 {areasOpen && (
-                  <div className="absolute top-full left-0 mt-0 pt-2">
+                  <div className="absolute top-full left-0 mt-0 pt-2 z-[100]">
                     <div className="bg-primary rounded-lg shadow-lg py-2 w-56">
                       {locations.map((loc) => (
                         <Link
