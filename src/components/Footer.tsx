@@ -81,8 +81,8 @@ export default function Footer() {
                   {s.icon}
                 </a>
               ))}
-              <div className="h-5 w-px bg-gray-700 hidden sm:block" />
-              <a href="tel:+12674149751" className="text-white font-bold text-base sm:text-lg hover:text-accent transition whitespace-nowrap w-full sm:w-auto mt-2 sm:mt-0">
+              <div className="h-5 w-px bg-gray-700 hidden md:block" />
+              <a href="tel:+12674149751" className="text-white font-bold text-lg hover:text-accent transition whitespace-nowrap w-full md:w-auto mt-2 md:mt-0">
                 (267) 414-9751
               </a>
             </div>

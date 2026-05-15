@@ -29,25 +29,25 @@ export default function Hero({ title, subtitle, showCTA = true, backgroundImage 
         </>
       )}
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 lg:py-32">
         <div className="max-w-3xl">
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 drop-shadow-lg">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6 drop-shadow-lg">
             {title}
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 leading-relaxed drop-shadow-md">
+          <p className="text-base md:text-xl text-white/90 mb-6 md:mb-8 leading-relaxed drop-shadow-md">
             {subtitle}
           </p>
           {showCTA && (
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link
                 href="/book-online"
-                className="inline-flex items-center justify-center bg-white text-primary font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg"
+                className="inline-flex items-center justify-center bg-white text-primary font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-gray-100 transition shadow-lg text-sm md:text-lg"
               >
                 GET A FREE ESTIMATE
               </Link>
               <a
                 href="tel:+12674149751"
-                className="inline-flex items-center justify-center bg-white/10 backdrop-blur text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-base sm:text-lg"
+                className="inline-flex items-center justify-center bg-white/10 backdrop-blur text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-sm md:text-lg"
               >
                 CALL (267) 414-9751
               </a>

@@ -130,34 +130,34 @@ export default function EstimateWizard() {
     : "";
 
   return (
-    <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 -mt-4 sm:-mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden box-border">
+    <div className="bg-white rounded-xl md:rounded-2xl shadow-xl border border-gray-200 -mt-6 md:-mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden box-border">
       {/* Header */}
-      <div className="bg-primary px-3 sm:px-6 py-3 sm:py-4">
+      <div className="bg-primary px-4 md:px-6 py-3 md:py-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h2 className="text-white font-bold text-sm sm:text-lg">CHECK AVAILABILITY</h2>
-            <p className="text-white/70 text-[10px] sm:text-xs mt-0.5">Takes less than a minute — no obligation</p>
+            <h2 className="text-white font-bold text-base md:text-lg">CHECK AVAILABILITY</h2>
+            <p className="text-white/70 text-xs mt-0.5">Takes less than a minute — no obligation</p>
           </div>
-          <div className="flex items-center gap-1 sm:gap-1.5 bg-white/15 backdrop-blur rounded-lg px-2 sm:px-3 py-1 sm:py-1.5 w-fit">
+          <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-lg px-2 md:px-3 py-1 md:py-1.5 w-fit">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((i) => (
-                <svg key={i} className={`w-3 h-3 sm:w-4 sm:h-4 ${i <= 4 ? "text-accent" : "text-accent/60"}`} fill="currentColor" viewBox="0 0 20 20">
+                <svg key={i} className={`w-3.5 h-3.5 md:w-4 md:h-4 ${i <= 4 ? "text-accent" : "text-accent/60"}`} fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
             </div>
-            <span className="text-white font-bold text-xs sm:text-sm">4.8</span>
-            <span className="text-white/70 text-[10px] sm:text-xs">Google</span>
+            <span className="text-white font-bold text-sm">4.8</span>
+            <span className="text-white/70 text-xs">Google</span>
           </div>
         </div>
       </div>
 
-      <div className="p-3 sm:p-6 lg:p-8">
-        <p className="text-gray-400 text-xs sm:text-sm font-bold mb-4 sm:mb-6">Tell us a few details to get started.</p>
+      <div className="p-4 md:p-6 lg:p-8">
+        <p className="text-gray-400 text-sm font-bold mb-4 md:mb-6">Tell us a few details to get started.</p>
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4">
           {/* Zip codes */}
-          <div className="grid grid-cols-2 gap-2 sm:gap-4">
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
             <div>
               <label className="block text-xs font-medium text-gray-500 mb-1">Moving From (Zip) *</label>
               <input
