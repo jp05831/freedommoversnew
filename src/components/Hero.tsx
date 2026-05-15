@@ -38,16 +38,16 @@ export default function Hero({ title, subtitle, showCTA = true, backgroundImage 
             {subtitle}
           </p>
           {showCTA && (
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="/book-online"
-                className="inline-flex items-center justify-center bg-white text-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition shadow-lg text-lg"
+                className="inline-flex items-center justify-center bg-white text-primary font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg"
               >
                 GET A FREE ESTIMATE
               </Link>
               <a
                 href="tel:+12674149751"
-                className="inline-flex items-center justify-center bg-white/10 backdrop-blur text-white font-bold px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg"
+                className="inline-flex items-center justify-center bg-white/10 backdrop-blur text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-base sm:text-lg"
               >
                 CALL (267) 414-9751
               </a>

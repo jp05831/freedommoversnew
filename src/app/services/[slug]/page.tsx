@@ -104,7 +104,7 @@ export default async function ServicePage({ params }: Props) {
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24 space-y-6">
+              <div className="lg:sticky lg:top-24 space-y-6">
                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
                   <h3 className="font-bold text-dark text-lg mb-4">Get a Free Estimate</h3>
                   <ContactForm compact />

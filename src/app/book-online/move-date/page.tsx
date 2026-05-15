@@ -56,7 +56,7 @@ export default function MoveDatePage() {
 
   return (
     <div>
-      <h1 className="text-2xl sm:text-3xl font-bold text-dark tracking-tight">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-dark tracking-tight leading-tight">
         WHEN ARE YOU LOOKING TO MOVE?
       </h1>
 

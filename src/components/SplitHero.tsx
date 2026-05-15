@@ -36,23 +36,23 @@ export default function SplitHero({ title, subtitle, image }: SplitHeroProps) {
         </div>
 
         {/* Mobile text content */}
-        <div className="px-6 sm:px-10 py-8 sm:py-12">
-          <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4 drop-shadow-lg">
+        <div className="px-4 sm:px-10 py-8 sm:py-12">
+          <h1 className="text-2xl sm:text-4xl font-bold leading-tight mb-4 drop-shadow-lg">
             {title}
           </h1>
-          <p className="text-base sm:text-lg text-white/90 mb-6 leading-relaxed drop-shadow-md">
+          <p className="text-sm sm:text-lg text-white/90 mb-6 leading-relaxed drop-shadow-md">
             {subtitle}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               href="/book-online"
-              className="inline-flex items-center justify-center bg-white text-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition shadow-lg text-lg"
+              className="inline-flex items-center justify-center bg-white text-primary font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg"
             >
               GET A FREE ESTIMATE
             </Link>
             <a
               href="tel:+12674149751"
-              className="inline-flex items-center justify-center bg-white/10 backdrop-blur text-white font-bold px-8 py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-lg"
+              className="inline-flex items-center justify-center bg-white/10 backdrop-blur text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-white/20 transition border border-white/20 text-base sm:text-lg"
             >
               CALL (267) 414-9751
             </a>

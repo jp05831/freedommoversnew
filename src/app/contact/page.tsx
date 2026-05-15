@@ -26,9 +26,9 @@ export default function ContactPage() {
             we&apos;re here to help.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8 mb-12">
             {/* Phone */}
-            <div className="text-center bg-gray-50 rounded-xl p-8 border border-gray-100">
+            <div className="text-center bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-100 sm:col-span-2 md:col-span-1">
               <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-7 h-7 text-primary" />
               </div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
             </div>
 
             {/* Location */}
-            <div className="text-center bg-gray-50 rounded-xl p-8 border border-gray-100">
+            <div className="text-center bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-100">
               <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <MapPin className="w-7 h-7 text-primary" />
               </div>
@@ -49,7 +49,7 @@ export default function ContactPage() {
             </div>
 
             {/* Business Hours */}
-            <div className="text-center bg-gray-50 rounded-xl p-8 border border-gray-100">
+            <div className="text-center bg-gray-50 rounded-xl p-6 sm:p-8 border border-gray-100">
               <div className="bg-primary/10 rounded-full p-4 w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-7 h-7 text-primary" />
               </div>

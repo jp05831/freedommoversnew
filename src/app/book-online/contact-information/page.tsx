@@ -52,7 +52,7 @@ export default function ContactInfoPage() {
 
   return (
     <div>
-      <h1 className="text-2xl sm:text-3xl font-bold text-dark tracking-tight">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-dark tracking-tight leading-tight">
         HOW CAN WE REACH YOU?
       </h1>
       <p className="text-gray-500 mt-2">

@@ -130,7 +130,7 @@ export default function EstimateWizard() {
     : "";
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-xl border border-gray-200 -mt-8 relative z-10 w-full max-w-[580px] mx-auto overflow-hidden box-border">
       {/* Header */}
       <div className="bg-primary px-4 sm:px-6 py-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -221,7 +221,7 @@ export default function EstimateWizard() {
 
             {/* Compact calendar dropdown */}
             {showCalendar && (
-              <div className="absolute top-full left-0 z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-3 w-[280px]">
+              <div className="absolute top-full left-0 right-0 sm:right-auto z-50 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-3 w-full sm:w-[280px]">
                 <div className="flex items-center justify-between mb-2">
                   <button type="button" onClick={prevMonth} disabled={!canGoBack} className="p-0.5 hover:bg-gray-100 rounded disabled:opacity-30 transition">
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,7 +250,7 @@ export default function EstimateWizard() {
                         key={day}
                         onClick={() => selectDay(day)}
                         disabled={isPast(day)}
-                        className={`w-[34px] h-[26px] text-[11px] rounded transition font-medium mx-auto ${
+                        className={`w-full aspect-square max-w-[34px] text-[11px] rounded transition font-medium mx-auto flex items-center justify-center ${
                           isSelected(day)
                             ? "bg-primary text-white"
                             : isPast(day)

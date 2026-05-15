@@ -52,10 +52,10 @@ export default function HomePage() {
       />
 
       {/* Estimate Form - overlaps hero with award badges on sides */}
-      <div className="px-4 sm:px-6 lg:px-8 pb-8">
+      <div className="px-3 sm:px-6 lg:px-8 pb-8 overflow-hidden">
         <div className="flex items-center justify-center gap-4 lg:gap-8 xl:gap-12">
           {/* Left Award Badge */}
-          <div className="hidden lg:flex flex-col items-center justify-center">
+          <div className="hidden lg:flex flex-col items-center justify-center flex-shrink-0">
             <img 
               src="/images/award20-21.png" 
               alt="Best of Bucks County 2020-2021" 
@@ -64,12 +64,12 @@ export default function HomePage() {
           </div>
           
           {/* Estimate Form */}
-          <div className="flex-shrink-0">
+          <div className="w-full max-w-[580px] flex-shrink min-w-0">
             <EstimateWizard />
           </div>
           
           {/* Right Award Badge */}
-          <div className="hidden lg:flex flex-col items-center justify-center">
+          <div className="hidden lg:flex flex-col items-center justify-center flex-shrink-0">
             <img 
               src="/images/award22-23.png" 
               alt="Best of Bucks County 2022-2023" 
@@ -79,16 +79,16 @@ export default function HomePage() {
         </div>
         
         {/* Tablet/Mobile: Awards below form */}
-        <div className="flex lg:hidden items-center justify-center gap-4 sm:gap-6 mt-6 sm:mt-8">
+        <div className="flex lg:hidden items-center justify-center gap-3 sm:gap-6 mt-6 sm:mt-8">
           <img 
             src="/images/award20-21.png" 
             alt="Best of Bucks County 2020-2021" 
-            className="w-28 sm:w-36 h-auto"
+            className="w-24 sm:w-36 h-auto max-w-[45%]"
           />
           <img 
             src="/images/award22-23.png" 
             alt="Best of Bucks County 2022-2023" 
-            className="w-28 sm:w-36 h-auto"
+            className="w-24 sm:w-36 h-auto max-w-[45%]"
           />
         </div>
       </div>
