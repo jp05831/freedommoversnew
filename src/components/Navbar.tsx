@@ -19,7 +19,7 @@ export default function Navbar() {
             <img
               src="/images/logo.png"
               alt="Freedom Moving"
-              className="h-8 lg:h-10 w-auto"
+              className="h-6 lg:h-8 w-auto"
             />
           </Link>
 

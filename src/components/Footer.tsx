@@ -54,7 +54,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Freedom Moving"
-                className="h-8 w-auto"
+                className="h-6 w-auto"
               />
             </div>
 
