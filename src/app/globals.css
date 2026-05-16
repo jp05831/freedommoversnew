@@ -6,8 +6,8 @@ html, body {
   max-width: 100vw;
 }
 
-/* Ensure images don't overflow */
-img {
+/* Ensure images don't overflow (except when height is explicitly set) */
+img:not([class*="h-"]) {
   max-width: 100%;
   height: auto;
 }
