@@ -16,7 +16,7 @@ export default function HomePage() {
     name: "Freedom Moving",
     description:
       "Family-owned moving company in Bucks County, PA. Voted Best of Bucks 4 years in a row. Residential, apartment, local, and senior moving services.",
-    url: "https://www.freedommoving.com",
+    url: "https://freedommovers.co",
     telephone: "+12155551234",
     address: {
       "@type": "PostalAddress",
