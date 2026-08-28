@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
-  trailingSlash: true,
+  // Vercel server output is required for Prisma, Supabase auth, webhooks, and share links.
   images: {
     unoptimized: true,
     remotePatterns: [

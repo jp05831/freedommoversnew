@@ -5,30 +5,30 @@ import { Star } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Freedom Moving — a family-owned Bucks County moving company voted Best of Bucks 4 years in a row.",
+    "Learn about Freedom Moving — a family-owned moving company serving Miramar, Broward County, and South Florida.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <Hero
-        title="Bucks County Moving Company | Freedom Moving"
-        subtitle="Freedom Moving is a trusted Bucks County moving company providing residential, commercial, and local moving services throughout Pennsylvania — delivering reliable, professional moves backed by years of experience."
+        title="Miramar Moving Company | Freedom Moving"
+        subtitle="Freedom Moving provides residential, commercial, and local moving services throughout Broward County and South Florida—with reliable, professional care backed by years of experience."
         showCTA={false}
       />
 
       <section className="py-16 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-dark mb-6">
-            Our Story – Built in Bucks County, Trusted Throughout Pennsylvania
+            Our Story – A Family Moving Company Now Serving South Florida
           </h2>
           <div className="prose prose-gray max-w-none">
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Founded in Bucks County, Pennsylvania, Freedom Moving was built on a simple
+              Freedom Moving was built on a simple
               mission: deliver dependable, high-quality moving services that people can trust. Over the
               years, we&apos;ve grown from a small local crew into one of the most recognized
-              moving companies in Bucks County, serving areas including Doylestown, New Hope,
-              Newtown, Yardley, Langhorne, and throughout the greater Philadelphia region.
+              moving companies in the communities we serve. We are now based in Miramar,
+              serving Pembroke Pines, Hollywood, Fort Lauderdale, Davie, and Broward County.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               As a family-owned and operated moving company, every move we complete reflects directly on
@@ -45,7 +45,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 mb-12">
             {[
-              { number: "4x", label: "Best of Bucks Winner" },
+              { number: "Family", label: "Owned & Operated" },
               { number: "4.9", label: "Star Google Rating" },
               { number: "1000s", label: "Families Moved" },
             ].map((stat) => (
@@ -73,7 +73,7 @@ export default function AboutPage() {
               },
               {
                 title: "Community",
-                desc: "We're proud to serve Bucks County and the greater Philadelphia area. This is our home too.",
+                desc: "We're proud to call Miramar home and serve communities across Broward County and South Florida.",
               },
             ].map((value) => (
               <div key={value.title} className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
@@ -83,23 +83,23 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* Serving Bucks County Section */}
-          <h2 className="text-3xl font-bold text-dark mb-6">Serving Bucks County and Surrounding Areas</h2>
+          {/* Service area section */}
+          <h2 className="text-3xl font-bold text-dark mb-6">Serving Miramar and Broward County</h2>
           <p className="text-gray-600 leading-relaxed mb-12">
-            If you&apos;re searching for a reliable moving company in Bucks County, our team is ready
+            If you&apos;re searching for a reliable moving company in Broward County, our team is ready
             to help. Whether you need a local move, long-distance relocation, or help with a specialty item, Freedom Moving delivers a seamless experience from start to finish.
           </p>
 
-          {/* Best of Bucks */}
-          <h2 className="text-3xl font-bold text-dark mb-6">Best of Bucks — 4 Years Running</h2>
+          {/* Local commitment */}
+          <h2 className="text-3xl font-bold text-dark mb-6">Our Commitment to South Florida</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            We&apos;re proud to be voted Best of Bucks County 4 years in a row, reflecting our commitment to
-            excellence, trust, and customer satisfaction. This award is a testament to the way
+            We&apos;re proud of the reputation we have built through careful work, reflecting our commitment to
+            excellence, trust, and customer satisfaction. Our reputation reflects the way
             we conduct business — honestly and with integrity.
           </p>
           <div className="bg-gray-50 rounded-xl p-6 inline-block border border-gray-100 mb-8">
-            <p className="text-sm text-gray-500">Community Voted</p>
-            <p className="font-semibold text-dark">🏆 Best of Bucks County — 4 Years in a Row</p>
+            <p className="text-sm text-gray-500">Our New Home</p>
+            <p className="font-semibold text-dark">📍 Based in Miramar, Florida</p>
           </div>
 
           {/* Google Rating */}

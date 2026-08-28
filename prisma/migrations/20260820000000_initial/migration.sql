@@ -1,0 +1,24 @@
+-- Initial CRM schema. Generated from prisma/schema.prisma for Supabase Postgres.
+CREATE TYPE "LeadStatus" AS ENUM ('NEW','CONTACTED','QUOTED','WON','LOST');
+CREATE TYPE "QuoteType" AS ENUM ('HOURLY','FLAT','WEIGHT_BASED');
+CREATE TYPE "QuoteStatus" AS ENUM ('DRAFT','SENT','ACCEPTED','DECLINED');
+CREATE TYPE "JobStatus" AS ENUM ('SCHEDULED','IN_PROGRESS','COMPLETED','CANCELLED');
+CREATE TYPE "InvoiceStatus" AS ENUM ('UNPAID','PARTIAL','PAID');
+CREATE TYPE "CrewRole" AS ENUM ('LEAD','MOVER');
+CREATE TYPE "CommunicationType" AS ENUM ('CALL','TEXT','EMAIL');
+CREATE TYPE "CommunicationDirection" AS ENUM ('INBOUND','OUTBOUND');
+CREATE TABLE "Organization" ("id" TEXT PRIMARY KEY,"name" TEXT NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "UserProfile" ("id" TEXT PRIMARY KEY,"organizationId" TEXT NOT NULL REFERENCES "Organization"("id") ON DELETE CASCADE,"email" TEXT NOT NULL UNIQUE,"role" TEXT NOT NULL DEFAULT 'OWNER',"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE "Customer" ("id" TEXT PRIMARY KEY,"organizationId" TEXT NOT NULL REFERENCES "Organization"("id") ON DELETE CASCADE,"name" TEXT NOT NULL,"phone" TEXT NOT NULL,"email" TEXT,"addresses" JSONB NOT NULL DEFAULT '[]',"source" TEXT NOT NULL,"notes" TEXT,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "Lead" ("id" TEXT PRIMARY KEY,"customerId" TEXT NOT NULL REFERENCES "Customer"("id") ON DELETE CASCADE,"status" "LeadStatus" NOT NULL DEFAULT 'NEW',"moveDate" TIMESTAMP(3),"originAddress" TEXT NOT NULL,"destinationAddress" TEXT NOT NULL,"estimatedRooms" INTEGER,"estimatedSqft" INTEGER,"notes" TEXT,"source" TEXT NOT NULL,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "Quote" ("id" TEXT PRIMARY KEY,"leadId" TEXT NOT NULL REFERENCES "Lead"("id") ON DELETE CASCADE,"publicToken" TEXT NOT NULL UNIQUE,"quoteType" "QuoteType" NOT NULL,"rate" DECIMAL(10,2) NOT NULL,"estimatedHours" DECIMAL(6,2),"mileageFee" DECIMAL(10,2) NOT NULL DEFAULT 0,"estimatedTotal" DECIMAL(10,2) NOT NULL,"crewSizeRecommended" INTEGER NOT NULL,"truckSize" TEXT NOT NULL,"sentAt" TIMESTAMP(3),"status" "QuoteStatus" NOT NULL DEFAULT 'DRAFT',"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "Job" ("id" TEXT PRIMARY KEY,"quoteId" TEXT NOT NULL UNIQUE REFERENCES "Quote"("id"),"scheduledDate" TIMESTAMP(3) NOT NULL,"startTime" TEXT NOT NULL,"truckAssigned" TEXT,"status" "JobStatus" NOT NULL DEFAULT 'SCHEDULED',"actualHours" DECIMAL(6,2),"inventoryNotes" TEXT,"damageNotes" TEXT,"checkpoints" JSONB NOT NULL DEFAULT '[]',"photoPaths" JSONB NOT NULL DEFAULT '[]',"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "CrewMember" ("id" TEXT PRIMARY KEY,"organizationId" TEXT NOT NULL REFERENCES "Organization"("id") ON DELETE CASCADE,"name" TEXT NOT NULL,"phone" TEXT NOT NULL,"role" "CrewRole" NOT NULL,"active" BOOLEAN NOT NULL DEFAULT true);
+CREATE TABLE "JobCrew" ("jobId" TEXT NOT NULL REFERENCES "Job"("id") ON DELETE CASCADE,"crewMemberId" TEXT NOT NULL REFERENCES "CrewMember"("id"),PRIMARY KEY("jobId","crewMemberId"));
+CREATE TABLE "Invoice" ("id" TEXT PRIMARY KEY,"jobId" TEXT NOT NULL UNIQUE REFERENCES "Job"("id"),"subtotal" DECIMAL(10,2) NOT NULL,"tax" DECIMAL(10,2) NOT NULL DEFAULT 0,"total" DECIMAL(10,2) NOT NULL,"amountPaid" DECIMAL(10,2) NOT NULL DEFAULT 0,"paymentMethod" TEXT,"status" "InvoiceStatus" NOT NULL DEFAULT 'UNPAID',"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"updatedAt" TIMESTAMP(3) NOT NULL);
+CREATE TABLE "InvoiceLineItem" ("id" TEXT PRIMARY KEY,"invoiceId" TEXT NOT NULL REFERENCES "Invoice"("id") ON DELETE CASCADE,"type" TEXT NOT NULL,"description" TEXT NOT NULL,"amount" DECIMAL(10,2) NOT NULL);
+CREATE TABLE "CommunicationLog" ("id" TEXT PRIMARY KEY,"customerId" TEXT NOT NULL REFERENCES "Customer"("id") ON DELETE CASCADE,"type" "CommunicationType" NOT NULL,"direction" "CommunicationDirection" NOT NULL,"timestamp" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,"notes" TEXT,"twilioSid" TEXT UNIQUE);
+CREATE TABLE "Task" ("id" TEXT PRIMARY KEY,"customerId" TEXT NOT NULL REFERENCES "Customer"("id") ON DELETE CASCADE,"title" TEXT NOT NULL,"dueAt" TIMESTAMP(3) NOT NULL,"completed" BOOLEAN NOT NULL DEFAULT false,"createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE INDEX "Customer_organizationId_name_idx" ON "Customer"("organizationId","name");
+CREATE INDEX "Lead_customerId_status_idx" ON "Lead"("customerId","status");
+CREATE INDEX "Job_scheduledDate_truckAssigned_idx" ON "Job"("scheduledDate","truckAssigned");

@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const location = getLocation(slug);
   if (!location) return {};
   return {
-    title: `${location.adjective} Movers in ${location.name}, PA | Freedom Moving`,
-    description: `${location.adjective} movers in ${location.name}, PA. Freedom Moving offers professional moving services — voted Best of Bucks 4 years in a row. Free estimates — call (267) 414-9751.`,
+    title: `${location.adjective} Movers in ${location.name}, FL | Freedom Moving`,
+    description: `${location.adjective} movers in ${location.name}, FL. Freedom Moving offers professional residential and commercial moving services throughout Broward County.`,
   };
 }
 
@@ -59,7 +59,7 @@ export default async function LocationPage({ params }: Props) {
   return (
     <>
       <Hero
-        title={`${location.adjective} Movers in ${location.name}, PA`}
+        title={`${location.adjective} Movers in ${location.name}, FL`}
         subtitle={location.description}
       />
 
@@ -84,7 +84,7 @@ export default async function LocationPage({ params }: Props) {
                 Moving Services in {location.name}
               </h2>
               <p className="text-gray-600 mb-6">
-                As a full-service moving company voted Best of Bucks 4 years running, we offer comprehensive
+                As a family-owned full-service moving company, we offer comprehensive
                 moving solutions for {location.name} residents. Whether you&apos;re moving across the street
                 or across the state, our trained professional crews handle every detail.
               </p>
@@ -110,7 +110,7 @@ export default async function LocationPage({ params }: Props) {
               </div>
 
               <h2 className="text-2xl font-bold text-dark mb-4">
-                About Moving in {location.name}, PA
+                About Moving in {location.name}, FL
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 {location.aboutCommunity}
@@ -173,7 +173,7 @@ export default async function LocationPage({ params }: Props) {
                     href={`/areas-served/${loc.slug}`}
                     className="text-sm text-gray-700 hover:text-primary font-medium transition py-1"
                   >
-                    {loc.name}, PA →
+                    {loc.name}, FL →
                   </Link>
                 ))}
                 <Link

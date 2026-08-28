@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Moving tips, guides, and news from Freedom Moving in Bucks County, PA.",
+  description: "Moving tips, guides, and news from Freedom Moving in Miramar and Broward County, Florida.",
 };
 
 export default function BlogPage() {
@@ -22,7 +22,7 @@ export default function BlogPage() {
             <p className="text-5xl mb-4">📝</p>
             <h2 className="text-2xl font-bold text-dark mb-4">Coming Soon</h2>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto">
-              We&apos;re working on helpful moving guides, packing tips, and local Bucks County insights.
+              We&apos;re working on helpful moving guides, packing tips, and local South Florida insights.
               Check back soon for our latest articles!
             </p>
             <Link

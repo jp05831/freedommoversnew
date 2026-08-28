@@ -6,7 +6,7 @@ import { Phone, MapPin, Clock } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Freedom Moving for a free moving estimate. Call us or fill out our contact form. Serving Bucks County and the greater Philadelphia area.",
+    "Get in touch with Freedom Moving for a free moving estimate. Serving Miramar, Broward County, and surrounding South Florida communities.",
 };
 
 export default function ContactPage() {
@@ -44,8 +44,8 @@ export default function ContactPage() {
                 <MapPin className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-bold text-dark text-lg mb-2">Service Area</h3>
-              <p className="text-gray-600">Bucks County, PA</p>
-              <p className="text-gray-500 text-sm mt-1">& Greater Philadelphia Area</p>
+              <p className="text-gray-600">Miramar, FL</p>
+              <p className="text-gray-500 text-sm mt-1">Serving Broward County & South Florida</p>
             </div>
 
             {/* Business Hours */}
@@ -73,17 +73,17 @@ export default function ContactPage() {
             </Link>
           </div>
 
-          {/* Google Map - Bucks County */}
+          {/* Google Map - Miramar */}
           <div className="mt-12 rounded-xl overflow-hidden border border-gray-200">
             <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCWEkCFDamQ_QuMIR1TYqOyEwGfuj63mK8&q=Bucks+County,+PA"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCWEkCFDamQ_QuMIR1TYqOyEwGfuj63mK8&q=Miramar,+FL"
               width="100%"
               height="350"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Freedom Moving Service Area - Bucks County PA"
+              title="Freedom Moving Service Area - Miramar Florida"
             />
           </div>
         </div>

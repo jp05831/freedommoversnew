@@ -176,7 +176,7 @@ export default function Navbar() {
                     className="block text-sm text-gray-600 hover:text-primary"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {loc.name}, PA
+                    {loc.name}, FL
                   </Link>
                 ))}
                 <Link

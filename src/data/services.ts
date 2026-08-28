@@ -84,12 +84,12 @@ export const services: Service[] = [
     shortName: "Local",
     heroImage: "/images/local-hero.jpg",
     description:
-      "Moving across Bucks County or anywhere in the greater Philadelphia area? Our local moving services are designed for efficiency and care. We know every neighborhood, every shortcut, and every challenge the area presents.",
+      "Moving across Broward County or anywhere in South Florida? Our local moving services are designed for efficiency and care, with planning for gated communities, condos, elevators, and Florida weather.",
     shortDescription:
-      "Fast, reliable local moves throughout Bucks County and the greater Philadelphia area.",
+      "Fast, reliable local moves throughout Broward County and South Florida.",
     icon: "📍",
     features: [
-      "Deep knowledge of Bucks County",
+      "Based in Miramar, Florida",
       "Efficient routing to save time",
       "Same-day service available",
       "Competitive local rates",
@@ -100,7 +100,7 @@ export const services: Service[] = [
       {
         question: "What counts as a local move?",
         answer:
-          "Generally, any move within a 50-mile radius is considered local. This covers all of Bucks County, Montgomery County, and the greater Philadelphia area.",
+          "Generally, any move within a 50-mile radius is considered local. This covers Broward County and much of the surrounding South Florida area.",
       },
       {
         question: "How long does a typical local move take?",
@@ -198,7 +198,7 @@ export const services: Service[] = [
       {
         question: "Do you work with senior living facilities?",
         answer:
-          "Yes, we regularly coordinate with senior living and retirement communities in Bucks County and the surrounding area. We understand their move-in procedures and can work within their schedules.",
+          "Yes, we coordinate with senior living and retirement communities throughout Broward County and South Florida. We understand their move-in procedures and work within their schedules.",
       },
     ],
   },

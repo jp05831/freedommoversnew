@@ -11,11 +11,11 @@ const quickLinks = [
 ];
 
 const topAreas = [
-  { name: "Doylestown", href: "/areas-served/doylestown" },
-  { name: "New Hope", href: "/areas-served/new-hope" },
-  { name: "Newtown", href: "/areas-served/newtown" },
-  { name: "Yardley", href: "/areas-served/yardley" },
-  { name: "Langhorne", href: "/areas-served/langhorne" },
+  { name: "Miramar", href: "/areas-served/miramar" },
+  { name: "Pembroke Pines", href: "/areas-served/pembroke-pines" },
+  { name: "Hollywood", href: "/areas-served/hollywood" },
+  { name: "Fort Lauderdale", href: "/areas-served/fort-lauderdale" },
+  { name: "Davie", href: "/areas-served/davie" },
 ];
 
 const socials = [
@@ -35,7 +35,7 @@ const socials = [
   },
   {
     name: "Yelp",
-    href: "https://www.yelp.com/biz/freedom-moving-southampton",
+    href: "https://www.yelp.com/",
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.905-4.308a1.072 1.072 0 011.596-.206 9.194 9.194 0 011.86 3.267c.286.847-.313 1.14-.19 1.444zM14.25 15.49l3.374 3.906c.54.623-.01 1.617-.826 1.49a9.226 9.226 0 01-3.573-1.467c-.695-.469-.585-1.149-.52-1.465l.818-4.108c.19-.953 1.405-1.124 1.727-.356zm-4.5-3.756c.19.953-.683 1.692-1.573 1.328l-4.57-1.867c-.867-.355-.87-1.41-.007-1.77a9.224 9.224 0 013.794-.8c.862.035 1.23.61 1.356 1.109zm-.76 4.78l-.818 4.108c-.19.953-1.405 1.124-1.727.356l-2.905-4.308c-.563-.83.214-1.906 1.174-1.63l4.994 1.433c.867.248.473 1.32.282 2.04zm-2.11-9.284c-.697-.468-.585-1.148-.52-1.464l.818-4.108c.19-.953 1.405-1.124 1.727-.356l2.905 4.308c.563.83-.214 1.906-1.174 1.63l-3.756-1.01z"/></svg>
     ),
@@ -59,11 +59,11 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-gray-400 mb-4">
-              Family-owned moving company in Bucks County, PA. Voted Best of Bucks 4 years in a row. Licensed and insured.
+              Family-owned moving company based in Miramar and serving Broward County, Florida. Professional residential and commercial moving.
             </p>
 
             <div className="space-y-1.5 text-sm text-gray-400 mb-4">
-              <p>Serving all of Bucks County, PA</p>
+              <p>Serving Miramar, Broward County &amp; South Florida</p>
               <p>Mon–Sat: 7 AM – 7 PM &nbsp;|&nbsp; Sun: By Appointment</p>
             </div>
 
@@ -87,14 +87,14 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Best of Bucks Badge */}
+            {/* Service area badge */}
             <div className="inline-flex items-center gap-2 bg-gray-800 px-4 py-2.5 rounded-lg">
               <div className="flex items-center justify-center w-8 h-8 bg-primary rounded text-white font-bold text-lg">
                 🏆
               </div>
               <div>
-                <p className="text-white text-xs font-semibold">Best of Bucks</p>
-                <p className="text-gray-400 text-[10px]">4 Years Running</p>
+                <p className="text-white text-xs font-semibold">Miramar Based</p>
+                <p className="text-gray-400 text-[10px]">Serving Broward County</p>
               </div>
             </div>
           </div>

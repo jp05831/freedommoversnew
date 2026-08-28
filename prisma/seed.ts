@@ -1,0 +1,16 @@
+import { PrismaClient, CrewRole, InvoiceStatus, JobStatus, LeadStatus, QuoteStatus, QuoteType } from "@prisma/client";
+const prisma = new PrismaClient();
+async function main() {
+  await prisma.organization.deleteMany({ where: { name: "Freedom Moving Demo" } });
+  const org = await prisma.organization.create({ data: { name: "Freedom Moving Demo", users: { create: { id: "00000000-0000-0000-0000-000000000001", email: "owner@freedommoving.example" } }, crewMembers: { create: [
+    { name: "Andre Lewis", phone: "(215) 555-0101", role: CrewRole.LEAD }, { name: "Devon Price", phone: "(215) 555-0102", role: CrewRole.MOVER }, { name: "Luis Gomez", phone: "(215) 555-0103", role: CrewRole.MOVER }
+  ] } }, include: { crewMembers: true } });
+  const maya = await prisma.customer.create({ data: { organizationId: org.id, name: "Maya Thompson", phone: "(215) 555-0148", email: "maya@example.com", addresses: ["18 Pine St, Doylestown, PA"], source: "Google", notes: "Prefers text. Baby grand piano." } });
+  const patel = await prisma.customer.create({ data: { organizationId: org.id, name: "James & Nina Patel", phone: "(267) 555-0182", email: "patels@example.com", addresses: ["422 Cedar Ave, Newtown, PA"], source: "Referral", notes: "Referred by the Martins." } });
+  await prisma.customer.create({ data: { organizationId: org.id, name: "Ridgeway Dental", phone: "(215) 555-0131", email: "office@ridgeway.example", addresses: ["88 Main St, Yardley, PA"], source: "Yelp", notes: "Commercial move; weekend only." } });
+  await prisma.lead.create({ data: { customerId: maya.id, status: LeadStatus.QUOTED, moveDate: new Date(Date.now()+8*86400000), originAddress: "18 Pine St, Doylestown, PA", destinationAddress: "210 Ash Way, Warrington, PA", estimatedRooms: 4, estimatedSqft: 1800, source: "Google", notes: "Piano requires 4-person crew.", quotes: { create: { quoteType: QuoteType.HOURLY, rate: 65, estimatedHours: 6, mileageFee: 72, estimatedTotal: 1632, crewSizeRecommended: 4, truckSize: "26 ft", status: QuoteStatus.SENT, sentAt: new Date() } } } });
+  const won = await prisma.lead.create({ data: { customerId: patel.id, status: LeadStatus.WON, moveDate: new Date(Date.now()+3*86400000), originAddress: "422 Cedar Ave, Newtown, PA", destinationAddress: "15 River Rd, Yardley, PA", estimatedRooms: 3, estimatedSqft: 1400, source: "Referral", quotes: { create: { quoteType: QuoteType.HOURLY, rate: 65, estimatedHours: 5, mileageFee: 48, estimatedTotal: 1023, crewSizeRecommended: 3, truckSize: "20 ft", status: QuoteStatus.ACCEPTED } } } , include: { quotes: true } });
+  const job = await prisma.job.create({ data: { quoteId: won.quotes[0].id, scheduledDate: new Date(Date.now()+3*86400000), startTime: "08:00", truckAssigned: "Truck 1 · 20 ft", status: JobStatus.SCHEDULED, inventoryNotes: "35 boxes, sectional, 2 beds", crewAssignments: { create: org.crewMembers.map(c => ({ crewMemberId: c.id })) } } });
+  await prisma.invoice.create({ data: { jobId: job.id, subtotal: 1023, tax: 0, total: 1023, amountPaid: 0, status: InvoiceStatus.UNPAID, lineItems: { create: [{ type: "Labor", description: "Moving services", amount: 975 }, { type: "Mileage", description: "Mileage", amount: 48 }] } } });
+}
+main().finally(() => prisma.$disconnect());

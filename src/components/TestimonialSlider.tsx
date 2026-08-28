@@ -13,7 +13,7 @@ export default function TestimonialSlider() {
           What Our Customers Say
         </h2>
         <p className="text-gray-600 text-center mb-8 md:mb-12 max-w-2xl mx-auto">
-          Don&apos;t just take our word for it — hear from families across Bucks County who trusted us with their moves.
+          Don&apos;t just take our word for it — hear from customers who trusted us with their moves.
         </p>
 
         <div className="max-w-3xl mx-auto">

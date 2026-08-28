@@ -15,14 +15,14 @@ export default function HomePage() {
     "@type": "LocalBusiness",
     name: "Freedom Moving",
     description:
-      "Family-owned moving company in Bucks County, PA. Voted Best of Bucks 4 years in a row. Residential, apartment, local, and senior moving services.",
+      "Family-owned moving company serving Miramar and Broward County, Florida. Residential, apartment, commercial, local, and senior moving services.",
     url: "https://freedommovers.co",
-    telephone: "+12155551234",
+    telephone: "+12674149751",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Doylestown",
-      addressRegion: "PA",
-      postalCode: "18901",
+      addressLocality: "Miramar",
+      addressRegion: "FL",
+      postalCode: "33025",
       addressCountry: "US",
     },
     areaServed: {
@@ -47,53 +47,22 @@ export default function HomePage() {
 
       <Hero
         title="Freedom Moving"
-        subtitle="Family-owned and trusted throughout Bucks County. From packing to delivery, we handle every detail of your move with care and professionalism."
+        subtitle="Family-owned and serving Miramar, Broward County, and surrounding South Florida communities. From packing to delivery, we handle every detail with care."
         backgroundImage="/images/hero-bg.png"
       />
 
       {/* Estimate Form - overlaps hero with award badges on sides */}
       <div className="px-4 sm:px-6 lg:px-8 pb-8 relative z-20">
-        <div className="flex items-center justify-center gap-4 lg:gap-8 xl:gap-12">
-          {/* Left Award Badge */}
-          <div className="hidden lg:flex flex-col items-center justify-center flex-shrink-0">
-            <img 
-              src="/images/award20-21.png" 
-              alt="Best of Bucks County 2020-2021" 
-              className="w-72 xl:w-80 2xl:w-96 h-auto drop-shadow-xl"
-            />
-          </div>
-          
+        <div className="flex items-center justify-center">
           {/* Estimate Form */}
           <div className="w-full max-w-[580px] flex-shrink min-w-0">
             <EstimateWizard />
           </div>
           
-          {/* Right Award Badge */}
-          <div className="hidden lg:flex flex-col items-center justify-center flex-shrink-0">
-            <img 
-              src="/images/award22-23.png" 
-              alt="Best of Bucks County 2022-2023" 
-              className="w-72 xl:w-80 2xl:w-96 h-auto drop-shadow-xl"
-            />
-          </div>
-        </div>
-        
-        {/* Tablet/Mobile: Awards below form */}
-        <div className="flex lg:hidden items-center justify-center gap-4 sm:gap-8 mt-8 sm:mt-10">
-          <img 
-            src="/images/award20-21.png" 
-            alt="Best of Bucks County 2020-2021" 
-            className="w-32 sm:w-44 h-auto max-w-[45%] drop-shadow-lg"
-          />
-          <img 
-            src="/images/award22-23.png" 
-            alt="Best of Bucks County 2022-2023" 
-            className="w-32 sm:w-44 h-auto max-w-[45%] drop-shadow-lg"
-          />
         </div>
       </div>
 
-      {/* Best of Bucks Award Section */}
+      {/* South Florida service area section */}
       <section className="py-10 md:py-12 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-white text-center md:text-left">
@@ -105,10 +74,10 @@ export default function HomePage() {
             </div>
             <div>
               <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2">
-                Proud Winner — Best of Bucks County
+                Proudly Serving South Florida
               </h2>
               <p className="text-base md:text-lg opacity-90">
-                4 Years in a Row! Voted by the Bucks County community for excellence in moving services.
+                Local residential and commercial moving from our new home base in Miramar.
               </p>
             </div>
           </div>
@@ -135,16 +104,16 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Best of Bucks */}
+            {/* Customer service */}
             <div className="text-center">
               <div className="mb-4 md:mb-5 flex justify-center">
                 <svg className="w-8 h-8 md:w-10 md:h-10 text-primary" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0016.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492V2.721m-6.75 16.029a7.5 7.5 0 01-6.75 0" />
                 </svg>
               </div>
-              <h3 className="font-bold text-dark text-base md:text-lg mb-1 md:mb-2">Best of Bucks</h3>
+              <h3 className="font-bold text-dark text-base md:text-lg mb-1 md:mb-2">Customer Focused</h3>
               <p className="text-gray-600 text-xs md:text-sm">
-                Voted Best Moving Company in Bucks County 4 years in a row by the local community.
+                Clear communication, careful handling, and personal service from start to finish.
               </p>
             </div>
 
@@ -158,7 +127,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-dark text-base md:text-lg mb-1 md:mb-2">Local Experts</h3>
               <p className="text-gray-600 text-xs md:text-sm">
-                We know Bucks County inside and out — every neighborhood, every route, every challenge.
+                Based in Miramar and serving communities throughout Broward County and South Florida.
               </p>
             </div>
 
@@ -212,7 +181,7 @@ export default function HomePage() {
             Areas We Serve
           </h2>
           <p className="text-gray-600 text-center mb-8 md:mb-12 max-w-2xl mx-auto">
-            Serving communities throughout Bucks County, PA with dependable moving services.
+            Serving Miramar and communities throughout Broward County, Florida with dependable moving services.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
             {topLocations.map((loc) => (
@@ -256,7 +225,7 @@ export default function HomePage() {
               </a>
             </div>
             <div className="mt-8 text-sm text-gray-500">
-              <p>Serving all of Bucks County, PA</p>
+              <p>Serving Miramar and Broward County, Florida</p>
               <p>Mon–Sat: 7 AM – 7 PM &nbsp;|&nbsp; Sun: By Appointment</p>
             </div>
           </div>

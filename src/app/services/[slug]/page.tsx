@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.name} in Bucks County, PA`,
+    title: `${service.name} in Miramar & Broward County, FL`,
     description: service.description,
   };
 }
@@ -58,12 +58,12 @@ export default async function ServicePage({ params }: Props) {
               </h2>
               <div className="prose prose-gray max-w-none mb-12">
                 <p>
-                  Freedom Moving has become Bucks County&apos;s go-to choice for {service.name.toLowerCase()}. Our family-owned company takes pride in every
+                  Freedom Moving is a trusted choice for {service.name.toLowerCase()} in Broward County. Our family-owned company takes pride in every
                   move, treating your belongings as if they were our own.
                 </p>
                 <p>
-                  We&apos;ve been voted Best of Bucks 4 years in a row and are backed by thousands of satisfied customers throughout
-                  Bucks County and the greater Philadelphia area. Our trained, professional crews arrive on time, communicate clearly, and finish the job right — every time.
+                  We&apos;re backed by satisfied customers and now serve
+                  Miramar, Broward County, and surrounding South Florida communities. Our trained, professional crews arrive on time, communicate clearly, and finish the job right.
                 </p>
                 <p>
                   Whether you need full-service packing, specialty item handling, or help with a complex move,
@@ -74,10 +74,10 @@ export default async function ServicePage({ params }: Props) {
               {/* Areas We Serve */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-dark mb-4">
-                  {service.name} Across Bucks County
+                  {service.name} Across Broward County
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  We provide {service.name.toLowerCase()} services throughout Bucks County and the greater Philadelphia area, including:
+                  We provide {service.name.toLowerCase()} services throughout Broward County and surrounding South Florida communities, including:
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4">
                   {locations.map((loc) => (

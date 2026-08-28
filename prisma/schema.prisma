@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUOTED
+  WON
+  LOST
+}
+
+enum QuoteType {
+  HOURLY
+  FLAT
+  WEIGHT_BASED
+}
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  DECLINED
+}
+
+enum JobStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum InvoiceStatus {
+  UNPAID
+  PARTIAL
+  PAID
+}
+
+enum CrewRole {
+  LEAD
+  MOVER
+}
+
+enum CommunicationType {
+  CALL
+  TEXT
+  EMAIL
+}
+
+enum CommunicationDirection {
+  INBOUND
+  OUTBOUND
+}
+
+model Organization {
+  id          String        @id @default(cuid())
+  name        String
+  users       UserProfile[]
+  customers   Customer[]
+  crewMembers CrewMember[]
+  createdAt   DateTime      @default(now())
+}
+
+model UserProfile {
+  id             String       @id // Supabase auth.users id
+  organizationId String
+  email          String       @unique
+  role           String       @default("OWNER")
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  createdAt      DateTime     @default(now())
+}
+
+model Customer {
+  id             String             @id @default(cuid())
+  organizationId String
+  organization   Organization       @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  phone          String
+  email          String?
+  addresses      Json               @default("[]")
+  source         String
+  notes          String?            @db.Text
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  leads          Lead[]
+  communications CommunicationLog[]
+  tasks          Task[]
+
+  @@index([organizationId, name])
+  @@index([organizationId, phone])
+}
+
+model Lead {
+  id                 String     @id @default(cuid())
+  customerId         String
+  customer           Customer   @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  status             LeadStatus @default(NEW)
+  moveDate           DateTime?
+  originAddress      String
+  destinationAddress String
+  estimatedRooms     Int?
+  estimatedSqft      Int?
+  notes              String?    @db.Text
+  source             String
+  createdAt          DateTime   @default(now())
+  updatedAt          DateTime   @updatedAt
+  quotes             Quote[]
+
+  @@index([customerId, status])
+}
+
+model Quote {
+  id                  String      @id @default(cuid())
+  leadId              String
+  lead                Lead        @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  publicToken         String      @unique @default(cuid())
+  quoteType           QuoteType
+  rate                Decimal     @db.Decimal(10, 2)
+  estimatedHours      Decimal?    @db.Decimal(6, 2)
+  mileageFee          Decimal     @default(0) @db.Decimal(10, 2)
+  estimatedTotal      Decimal     @db.Decimal(10, 2)
+  crewSizeRecommended Int
+  truckSize           String
+  sentAt              DateTime?
+  status              QuoteStatus @default(DRAFT)
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+  job                 Job?
+}
+
+model Job {
+  id              String    @id @default(cuid())
+  quoteId         String    @unique
+  quote           Quote     @relation(fields: [quoteId], references: [id])
+  scheduledDate   DateTime
+  startTime       String
+  truckAssigned   String?
+  status          JobStatus @default(SCHEDULED)
+  actualHours     Decimal?  @db.Decimal(6, 2)
+  inventoryNotes  String?   @db.Text
+  damageNotes     String?   @db.Text
+  checkpoints     Json      @default("[]")
+  photoPaths      Json      @default("[]")
+  crewAssignments JobCrew[]
+  invoice         Invoice?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([scheduledDate, truckAssigned])
+}
+
+model CrewMember {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  phone          String
+  role           CrewRole
+  active         Boolean      @default(true)
+  jobs           JobCrew[]
+}
+
+model JobCrew {
+  jobId        String
+  crewMemberId String
+  job          Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  crewMember   CrewMember @relation(fields: [crewMemberId], references: [id])
+
+  @@id([jobId, crewMemberId])
+  @@index([crewMemberId])
+}
+
+model Invoice {
+  id            String            @id @default(cuid())
+  jobId         String            @unique
+  job           Job               @relation(fields: [jobId], references: [id])
+  subtotal      Decimal           @db.Decimal(10, 2)
+  tax           Decimal           @default(0) @db.Decimal(10, 2)
+  total         Decimal           @db.Decimal(10, 2)
+  amountPaid    Decimal           @default(0) @db.Decimal(10, 2)
+  paymentMethod String?
+  status        InvoiceStatus     @default(UNPAID)
+  lineItems     InvoiceLineItem[]
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+}
+
+model InvoiceLineItem {
+  id          String  @id @default(cuid())
+  invoiceId   String
+  invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  type        String
+  description String
+  amount      Decimal @db.Decimal(10, 2)
+}
+
+model CommunicationLog {
+  id         String                 @id @default(cuid())
+  customerId String
+  customer   Customer               @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  type       CommunicationType
+  direction  CommunicationDirection
+  timestamp  DateTime               @default(now())
+  notes      String?                @db.Text
+  twilioSid  String?                @unique
+
+  @@index([customerId, timestamp])
+}
+
+model Task {
+  id         String   @id @default(cuid())
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  title      String
+  dueAt      DateTime
+  completed  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}

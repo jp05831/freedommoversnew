@@ -7,28 +7,28 @@ import { locations } from "@/data/locations";
 export const metadata: Metadata = {
   title: "Areas Served | Freedom Moving",
   description:
-    "Freedom Moving proudly serves Doylestown, New Hope, Newtown, Yardley, Langhorne, and communities throughout Bucks County, PA and the greater Philadelphia area.",
+    "Freedom Moving proudly serves Miramar, Pembroke Pines, Hollywood, Fort Lauderdale, Davie, Plantation, Sunrise, Weston, and Broward County, Florida.",
 };
 
 /** Featured communities shown on the main areas-served page */
 const featuredCommunities = [
-  { name: "Doylestown Borough", citySlug: "doylestown", anchor: "doylestown-borough" },
-  { name: "Buckingham", citySlug: "doylestown", anchor: "buckingham" },
-  { name: "New Britain", citySlug: "doylestown", anchor: "new-britain" },
-  { name: "New Hope Borough", citySlug: "new-hope", anchor: "new-hope-borough" },
-  { name: "Solebury Township", citySlug: "new-hope", anchor: "solebury-township" },
-  { name: "Upper Makefield", citySlug: "new-hope", anchor: "upper-makefield" },
-  { name: "Newtown Borough", citySlug: "newtown", anchor: "newtown-borough" },
-  { name: "Newtown Township", citySlug: "newtown", anchor: "newtown-township" },
-  { name: "Wrightstown", citySlug: "newtown", anchor: "wrightstown" },
+  { name: "Silver Shores", citySlug: "miramar", anchor: "silver-shores" },
+  { name: "Monarch Lakes", citySlug: "miramar", anchor: "monarch-lakes" },
+  { name: "Vizcaya", citySlug: "miramar", anchor: "vizcaya" },
+  { name: "Chapel Trail", citySlug: "pembroke-pines", anchor: "chapel-trail" },
+  { name: "Pembroke Falls", citySlug: "pembroke-pines", anchor: "pembroke-falls" },
+  { name: "Century Village", citySlug: "pembroke-pines", anchor: "century-village" },
+  { name: "Hollywood Hills", citySlug: "hollywood", anchor: "hollywood-hills" },
+  { name: "Emerald Hills", citySlug: "hollywood", anchor: "emerald-hills" },
+  { name: "Hollywood Beach", citySlug: "hollywood", anchor: "hollywood-beach" },
 ];
 
 export default function AreasServedPage() {
   return (
     <>
       <Hero
-        title="Areas We Serve in Bucks County"
-        subtitle="From Doylestown to Yardley, New Hope to Langhorne — we proudly serve communities throughout Bucks County and the greater Philadelphia area."
+        title="Areas We Serve in Broward County"
+        subtitle="Based in Miramar and serving Pembroke Pines, Hollywood, Fort Lauderdale, Davie, Plantation, Sunrise, Weston, and nearby South Florida communities."
         showCTA={false}
       />
 
@@ -37,7 +37,7 @@ export default function AreasServedPage() {
           {/* Cities */}
           <h2 className="text-2xl font-bold text-dark mb-6">Towns We Serve</h2>
           <p className="text-gray-600 mb-8 max-w-3xl">
-            We provide full-service professional moving throughout Bucks County&apos;s towns and townships.
+            We provide full-service professional moving throughout Broward County&apos;s cities and neighborhoods.
             Click any location below to learn more about our services in your area.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
@@ -57,7 +57,7 @@ export default function AreasServedPage() {
           </h2>
           <p className="text-gray-600 mb-8 max-w-3xl">
             In addition to the main towns we serve, we also provide moving services in select
-            communities and neighborhoods throughout Bucks County.
+            communities and neighborhoods throughout Broward County.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {featuredCommunities.map((c) => (
