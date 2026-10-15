@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Vercel server output is required for Prisma, Supabase auth, webhooks, and share links.
+  // GitHub Pages hosts the public site; retain server output for other hosts.
+  ...(process.env.GITHUB_PAGES === "true" ? { output: "export" as const } : {}),
   images: {
     unoptimized: true,
     remotePatterns: [
