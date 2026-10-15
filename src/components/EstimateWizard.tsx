@@ -24,7 +24,7 @@ function isValidZip(zip: string): boolean {
   return /^\d{5}(-\d{4})?$/.test(zip.trim());
 }
 
-export default function EstimateWizard() {
+export default function EstimateWizard({ hero = false }: { hero?: boolean }) {
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
   const [moveDate, setMoveDate] = useState("");
@@ -135,10 +135,10 @@ export default function EstimateWizard() {
       <div className="bg-primary px-4 md:px-6 py-3 md:py-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <div>
-            <h2 className="text-white font-bold text-base md:text-lg">CHECK AVAILABILITY</h2>
+            <h2 className="text-white font-bold text-base md:text-lg">{hero ? "Let’s plan your next move." : "CHECK AVAILABILITY"}</h2>
             <p className="text-white/70 text-xs mt-0.5">Takes less than a minute — no obligation</p>
           </div>
-          <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-lg px-2 md:px-3 py-1 md:py-1.5 w-fit">
+          {!hero && <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur rounded-lg px-2 md:px-3 py-1 md:py-1.5 w-fit">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((i) => (
                 <svg key={i} className={`w-3.5 h-3.5 md:w-4 md:h-4 ${i <= 4 ? "text-accent" : "text-accent/60"}`} fill="currentColor" viewBox="0 0 20 20">
@@ -148,7 +148,7 @@ export default function EstimateWizard() {
             </div>
             <span className="text-white font-bold text-sm">4.8</span>
             <span className="text-white/70 text-xs">Google</span>
-          </div>
+          </div>}
         </div>
       </div>
 
@@ -306,7 +306,7 @@ export default function EstimateWizard() {
           disabled={!canSubmit}
           className="mt-6 w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition text-sm disabled:opacity-40 disabled:cursor-not-allowed"
         >
-          Submit
+          {hero ? "Get my free quote →" : "Submit"}
         </button>
       </div>
     </div>

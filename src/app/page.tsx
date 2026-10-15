@@ -1,9 +1,8 @@
-import Hero from "@/components/Hero";
-import EstimateWizard from "@/components/EstimateWizard";
+import HomeHero from "@/components/HomeHero";
+import Link from "next/link";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import LocationCard from "@/components/LocationCard";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { services } from "@/data/services";
 import { locations } from "@/data/locations";
 
@@ -45,22 +44,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <Hero
-        title="Freedom Moving"
-        subtitle="Family-owned and serving Miramar, Broward County, and surrounding South Florida communities. From packing to delivery, we handle every detail with care."
-        backgroundImage="/images/hero-bg.png"
-      />
-
-      {/* Estimate Form - overlaps hero with award badges on sides */}
-      <div className="px-4 sm:px-6 lg:px-8 pb-8 relative z-20">
-        <div className="flex items-center justify-center">
-          {/* Estimate Form */}
-          <div className="w-full max-w-[580px] flex-shrink min-w-0">
-            <EstimateWizard />
-          </div>
-          
-        </div>
-      </div>
+      <HomeHero />
 
       {/* South Florida service area section */}
       <section className="py-10 md:py-12 bg-primary">
@@ -189,12 +173,12 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <a
+            <Link
               href="/areas-served"
               className="inline-block text-primary font-semibold hover:underline"
             >
               View All {locations.length} Areas We Serve →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
