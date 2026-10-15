@@ -35,7 +35,7 @@ export default function HomeHero() {
           <div className="moving-hero-socials" aria-label="Find Freedom Moving online">
             <p>GET TO KNOW YOUR MOVERS</p>
             <div className="moving-hero-social-links">
-              {socials.filter((social) => social.href !== "https://www.yelp.com/").map((social) => (
+              {socials.filter((social) => social.name !== "Facebook").map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
