@@ -8,7 +8,7 @@ interface SplitHeroProps {
 
 export default function SplitHero({ title, subtitle, image }: SplitHeroProps) {
   return (
-    <section className="relative bg-gradient-to-br from-primary to-primary-dark text-white overflow-hidden">
+    <section className="site-page-hero relative overflow-hidden">
       {/* ── Mobile layout: image on top, text below ── */}
       <div className="flex flex-col lg:hidden">
         {/* Mobile image banner */}

@@ -9,7 +9,7 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, showCTA = true, backgroundImage }: HeroProps) {
   return (
-    <section className="relative text-white overflow-hidden">
+    <section className={`relative overflow-hidden ${backgroundImage ? "text-white" : "site-page-hero"}`}>
       {/* Background */}
       {backgroundImage ? (
         <>
